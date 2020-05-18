@@ -29,8 +29,9 @@ while not id:
 version_api = '5.103'
 fields = 'domain,online'
 name_case = 'nom'
+headers = {"Accept-Language": "ru-RU, ru;q=0.9, en-US;q=0.8"}
 
-reply = requests.get(f'https://api.vk.com/method/friends.get?user_id={id}&fields={fields}&name_case={name_case}&access_token={access_token}&v={version_api}')
+reply = requests.get(f'https://api.vk.com/method/friends.get?user_id={id}&fields={fields}&name_case={name_case}&access_token={access_token}&v={version_api}', headers=headers)
 json = reply.json()
 
 if 'error' in json:
